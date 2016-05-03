@@ -13,10 +13,10 @@
 # privileged user (e.g. Postfix)
 <% if @umask != false %>UMask <%= @umask %><% end %>
 
+SubDomains		<%= @subdomains %>
 # Commonly-used options; the commented-out versions show the defaults.
 #Canonicalization	simple
 #Mode			sv
-#SubDomains		no
 #ADSPDiscard		no
 
 # Always oversign From (sign using actual From and a null From to prevent

@@ -35,6 +35,10 @@
 #   Hosts from which mail should be signed rather than verified.
 #   Array, default is ['127.0.0.1']
 #
+# [*subdomains*]
+#  Sign subdomains of those listed by the Domain parameter as well as the actual domains
+#  String, default is 'no'
+#
 # === Examples
 #
 #  Not called explicitly; referenced by opendkim init and config modules.
@@ -50,6 +54,7 @@ class opendkim::params {
   $umask  = '002'
   $oversignheaders = 'From'
   $internalhosts = ['127.0.0.1']
+  $subdomains = 'no'
 
   case $::operatingsystem {
     'Ubuntu', 'Debian': {
