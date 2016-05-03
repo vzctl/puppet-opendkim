@@ -31,7 +31,8 @@
 #
 class opendkim(
   $default_config = true,
-  $ensure_version = 'installed'
+  $ensure_version = 'installed',
+  $ensure_service = 'running',
 ) inherits ::opendkim::params {
 
   package { $opendkim::params::package:
@@ -39,6 +40,7 @@ class opendkim(
     alias  => 'opendkim'
   }
   service { $opendkim::params::service:
+    ensure  => $ensure_service,
     enable  => true,
     require => Package['opendkim'];
   }
